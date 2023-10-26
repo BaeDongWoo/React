@@ -4,9 +4,16 @@ import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
 const NewExpense = () => {
+  const onExpenseData = (expenses) => {
+    const expenseData = {
+      ...expenses,
+      id: Math.random().toString(),
+    };
+    console.log(expenseData);
+  };
   return (
     <div className="new-expense">
-      <ExpenseForm />
+      <ExpenseForm onExpenseData={onExpenseData} />
     </div>
   );
 };
