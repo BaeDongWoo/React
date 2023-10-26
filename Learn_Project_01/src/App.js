@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 function App() {
-  const expenses = [
+  const [expenseData, setExpenseData] = useState([
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -23,8 +23,12 @@ function App() {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ];
+  ]);
 
+  const addExpenseData = (expense) => {
+    setExpenseData([...expenseData, expense]);
+    console.log(expenseData);
+  };
   // return React.createElement(
   //   'div',
   //   {},
@@ -34,8 +38,8 @@ function App() {
 
   return (
     <div>
-      <NewExpense />
-      <Expenses items={expenses} />
+      <NewExpense addExpenseData={addExpenseData} />
+      <Expenses items={expenseData} />
     </div>
   );
 }
