@@ -26,7 +26,7 @@ function App() {
   ]);
 
   const addExpenseData = (expense) => {
-    setExpenseData([...expenseData, expense]);
+    setExpenseData([expense, ...expenseData]);
     console.log(expenseData);
   };
   // return React.createElement(
